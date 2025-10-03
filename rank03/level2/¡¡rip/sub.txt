@@ -1,0 +1,67 @@
+Nombre del ejercicio: rip
+Archivos esperados: *.c *.h
+Funciones permitidas: puts, write
+
+Escribe un programa que reciba como argumento una cadena que contenga únicamente paréntesis.
+
+Si los paréntesis no están balanceados (por ejemplo "())"), tu programa deberá eliminar el
+mínimo número de paréntesis necesario para que la expresión quede balanceada.
+
+👉 Eliminar significa reemplazar por espacios.
+
+Después deberás imprimir todas las soluciones posibles (pueden ser más de una).
+
+El orden de las soluciones no es importante.
+
+Ejemplos:
+$> ./rip '(()' | cat -e
+ ()$
+( )$
+
+$> ./rip '((()()())())' | cat -e
+((()()())())$
+
+$> ./rip '()())()'| cat -e
+()() ()$
+()( )()$
+( ())()$
+
+$> ./rip '(()(()(' | cat -e
+(()  ) $
+( )( ) $
+( ) () $
+ ()( ) $
+ () () $
+
+
+
+///////////////////////////////////////////////////////////////////
+
+Assignment name  : rip
+Expected files   : *.c *.h
+Allowed functions: puts, write
+--------------------------------------------------------------------------------
+
+Write a program that will take as argument a string containing only parenthesis.
+if the parenthesis are unbalanced (for example "())")
+your program shall remove the minimum number of parentheses for the expression to be balanced.
+By removing we mean replacing by spaces.
+You will then print all the solutions (can be more than one).
+
+The order of the solutions is not important.
+
+For example this should work:
+$> ./rip '(()' | cat -e
+ ()$
+( )$
+$> ./rip '((()()())())' | cat -e
+((()()())())$
+$> ./rip '()())()'| cat -e
+()() ()$
+()( )()$
+( ())()$
+$> ./rip '(()(()(' | cat -e
+(()  ) $
+( )( ) $
+( ) () $
+ ()( ) $

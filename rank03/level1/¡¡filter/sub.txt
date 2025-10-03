@@ -1,0 +1,52 @@
+filter:
+Funciones permitidas: read, strlen, malloc, calloc, realloc, free, printf, perror
+
+Escribe un programa que reciba un único argumento s.
+
+Tu programa deberá leer desde stdin y escribir todo el contenido leído en stdout,
+excepto que cada aparición de s debe ser reemplazada por '*'.
+
+Por ejemplo:
+
+./filter bonjour
+
+
+se comportará igual que:
+
+sed 's/bonjour/*******/g'
+
+
+En caso de error durante read o malloc, debes escribir "Error: " seguido del mensaje de error en stderr y retornar 1.
+
+Ejemplo:
+
+$> echo 'abcdefgaaaabcdefabc' | ./filter abc | cat -e
+***defgaaa***def***
+
+
+Si el programa se llama sin argumentos, con un argumento vacío o con varios argumentos, debe retornar 1.
+
+
+filter:
+Allowed functions: read, strlen, malloc, calloc, realloc, free, printf, perror
+------------------------------------------------------------------------------
+
+Write a programm taht will take one and only one argument s.
+
+Your programm will then read from stdin and write all the content read in stdout
+except that every occurence of s must be replaced by '*'.
+
+For example :
+
+./filter bonjour
+will behave the same way as:
+sed 's/bonjour/*******/g'
+
+in case of error during read or a malloc you must write "Error: " followed by
+the error message in stderr and return 1.
+
+$> echo 'abcdefgaaaabcdefabc' | ./filter abc | cat -e
+***defgaaa***def***
+
+If the program is called whitout argument or with an empty argument or with
+multiples arguments it must return 1.
