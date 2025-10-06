@@ -1,7 +1,7 @@
 filter:
 Allowed functions: read, strlen, malloc, calloc, realloc, free, printf, perror
 ------------------------------------------------------------------------------
-Write a programm taht will take one and only one argument s.
+Write a programm that will take one and only one argument s.
 Your programm will then read from stdin and write all the content read in stdout
 except that every occurence of s must be replaced by '*'.
 
@@ -15,3 +15,20 @@ $> echo 'abcdefgaaaabcdefabc' | ./filter abc | cat -e
 ***defgaaa***def***
 If the program is called whitout argument or with an empty argument or with
 multiples arguments it must return 1.
+
+--
+
+Escribe un programa que recibirá un y solo un argumento s. Tu programa deberá 
+entonces leer desde stdin y escribir todo el contenido leído en stdout excepto 
+que cada ocurrencia de s debe ser reemplazada por '*'.
+
+Por ejemplo: 
+./filter bonjour se comportará de la misma forma que: 
+sed 's/bonjour/*******/g' 
+En caso de error durante read o malloc debes escribir 
+"Error: " seguido del mensaje de error en stderr y devolver 1. 
+$> echo 'abcdefgaaaabcdefabc' | ./filter abc | cat -e 
+***defgaaadef*** 
+
+Si el programa se llama sin argumento o con un argumento vacío o con múltiples 
+argumentos debe devolver 1.

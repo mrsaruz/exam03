@@ -1,0 +1,12 @@
+# Ignorar archivos temporales
+*.log
+*.tmp
+
+# Ignorar carpetas
+/node_modules/
+/dist/
+
+# Ignorar archivos de configuración local
+.env
+.DS_Store
+
