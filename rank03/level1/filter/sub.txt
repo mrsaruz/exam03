@@ -5,31 +5,42 @@ Allowed functions: read,write, strlen, memmem, memmove, malloc, calloc, realloc,
 fprintf, stdout, stderr, perror
 ------------------------------------------------------------------------------
 Escribe un programa que reciba un unico argumento s. 
+
 Tu programa debe leer desde la entrada (stdin) y escribir todo el contenido en la salida standar (stdout), 
 excepto que cada concurrencia de s debe ser reemplazada por '*' (tantos asteriscos como la longitud de s).
+
 Tu programa se testeará con tamaños de bufer aleatorios, usando una función read personalizada. 
 Por tanto el buffer que configures en tu programa se llenará  con un número diferente de caracteres en cada llamada.
+
 Por ejemplo:
 ./filter hello
 debe comportarse igual que :
 sed 's/hello/*****/g'
+
 ./filter abc
 debe comportarse igual que :
 sed 's/abc/***/g'
+
 Mas generalmente, tu programa debe ser equivalente al script de shell filter.sh presente en este directorio
 (puedes comparar tu programa con él)
+
 En caso de error durante la lectura , o al hacer malloc, debes escribir "Error: ", 
 seguido del mensaje de error en stderr y devolver 1.
+
 Si el programa se ejecuta sin argumentos, con un argumento vacio o con multiples argumentos, debe devolver 1.
+
 Por ejemplo:
 $> echo 'abcdefgaaaabcdefabc' | ./filter abc | cat -e
 ***defgaaa***def***
+
 $> echo 'abcdefgaaaabcdeabcabcdabc' | ./filter abc | cat -e
 ***defgaaa***de******d***
+
 $> echo 'ababcabababc' | ./filter ababc | cat -e
 *****aba*****
+
 --------------------------------------------------------------------------------------------------------------
-filter.sh  : script de bash que hay que emular, se encuentra en el mismo directorios de los subjects:
+filter.sh  : script de bash que hay que emular, se encuentra en el mismo directorio de los subjects:
 #! /bin/sh
 [ -z "$1" ] && exit 1
 sed -E "s/$(echo "$1" | sed 's/\([][(){}\^.*+?$|]\)/\\\1/g')/$(echo "$1" | sed -E 's/./*/g')/g"
