@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   filter.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adruz-to <adruz-to@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/06 11:37:00 by adruz-to          #+#    #+#             */
+/*   Updated: 2025/10/06 12:03:28 by adruz-to         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
@@ -12,19 +24,19 @@ void	ft_filter(char *line, char *str)
 
 	while (line[i])           // Mientras no lleguemos al final de 'line'
 	{
-		int	h = 0;           // Índice para comparar con 'str'
+		int	j = 0;           // Índice para comparar con 'str'
 
 		// Compara carácter a carácter 'line' con 'str'
-		while (str[h] && line[i + h] == str[h])
-			h++;
+		while (str[j] && line[i + j] == str[j])
+			j++;
 
-		if (h == len)          // Si se encontró toda la palabra 'str'
+		if (j == len)          // Si se encontró toda la palabra 'str'
 		{
 			// Escribe en su lugar tantos '*' como la longitud de 'str'
-			while (h > 0)
+			while (j > 0)
 			{
 				write (1, "*", 1);
-				h--;
+				j--;
 			}
 			i += len;           // Salta los caracteres que reemplazamos
 		}
