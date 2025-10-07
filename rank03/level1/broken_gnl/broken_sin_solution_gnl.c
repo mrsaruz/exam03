@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   broken_sin_solution_gnl.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adruz-to <adruz-to@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/07 15:12:07 by adruz-to          #+#    #+#             */
+/*   Updated: 2025/10/07 15:12:15 by adruz-to         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 10
@@ -10,11 +20,10 @@
 
 #include "broken_gnl.h"
 
-
 char	*ft_strchr(char *s, int c)
 {
 	int	i = 0;
-	while (s[1] && s[i] != c)
+	while (s[i] != c)
 		i++;
 	if (s[i] == c)
 		return (s + i);
@@ -24,11 +33,9 @@ char	*ft_strchr(char *s, int c)
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t i = 0;
-	while (i < n)
+	while (--n > 0)
 	{
-		((char *)dest)[i] = ((char *)src)[i];
-		i++;
+		((char *)dest)[n - 1] = ((char *)src)[n - 1];
 	}
 	return (dest);
 }
@@ -46,12 +53,12 @@ size_t	ft_strlen(char *s)
 
 int	str_append_mem(char **s1, char *s2, size_t size2)
 {
-	size_t	size1 = *s1 ? ft_strlen(*s1) : 0;
+	size_t	size1 = ft_strlen(*s1);
 	char	*tmp = malloc(size2 + size1 + 1);
 	if (!tmp)
 		return (0);
-	if (*s1)
-		ft_memcpy(tmp, *s1, size1);
+	
+	ft_memcpy(tmp, *s1, size1);
 	ft_memcpy(tmp + size1, s2, size2);
 	tmp [size1 + size2] = 0;
 	free(*s1);
@@ -66,15 +73,15 @@ int	str_append_str(char **s1, char *s2)
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (dest < src)
+	if (dest > src)
 		return (ft_memcpy(dest, src, n));
 	else if (dest == src)
 		return (dest);
-	size_t	i = n;
-	while (i > 0)
+	size_t	i = ft_strlen((char *)src) - 1;
+	while (i >= 0)
 	{
-		i--;
 		((char *)dest)[i] = ((char *)src)[i];
+		i--;
 	}
 	return (dest);
 }
@@ -89,28 +96,13 @@ char	*get_next_line(int fd)
 	{
 		if (!str_append_str(&ret, b))
 			return (NULL);
-		b[0] = '\0';
 		int	read_ret = read(fd, b, BUFFER_SIZE);
 		if (read_ret == -1)
 			return (NULL);
-		if (read_ret == 0)
-			break;
 		b[read_ret] = 0;
-		tmp = ft_strchr(b, '\n');
 	}
-	if (tmp)
 	{
-		if (!str_append_mem(&ret, b, tmp - b + 1))
-		{
-			free(ret);
-			return (NULL);
-		}
-		ft_memmove(b, tmp + 1, ft_strlen(tmp + 1) + 1);
-	}
-	else
-	{
-		b[0] = '\0';
-		if (!ret || !*ret)
+	if (!str_append_mem(&ret, b, tmp - b + 1))
 		{
 			free(ret);
 			return (NULL);

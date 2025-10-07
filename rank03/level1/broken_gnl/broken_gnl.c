@@ -6,7 +6,7 @@
 /*   By: adruz-to <adruz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 16:04:09 by adruz-to          #+#    #+#             */
-/*   Updated: 2025/10/04 16:04:30 by adruz-to         ###   ########.fr       */
+/*   Updated: 2025/10/07 12:59:42 by adruz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,51 @@ Assignment name : broken_GNL
 Expected files  : get_next_line.c get_next_line.h
 Allowed functions : read, free, malloc
 --------------------------------------------------------------------------------
-Repair the function ‘get_next_line’ in the file get_next_line.c, whose prototype should be:
+Repara la función get_next_line en el archivo get_next_line.c, cuya firma debe 
+ser:
+
 char *get_next_line(int fd);
 
-You may need to repair other functions as well.
+Es posible que también necesites reparar otras funciones.
 
-Description of the ‘get_next_line’ function:
+Descripción de la función get_next_line:
 
-Your function must return a line that has been read from the file descriptor
-passed as a parameter.
+Tu función debe devolver una línea que haya sido leída del descriptor de archivo
+ pasado como parámetro.
 
-A ‘line that has been read’ is defined as a succession of 0 to n characters
-ending with ‘\n’ (ASCII code 0x0a) or with End of File (EOF).
+Una "línea que ha sido leída" se define como una sucesión de 0 a n caracteres 
+que termina con un \n (código ASCII 0x0a) o con el final del archivo (EOF).
 
-The line should be returned including the ‘\n’ if there is one at the end
-of the line that has been read.
+La línea debe devolverse incluyendo el \n si hay uno al final de la línea que 
+se ha leído.
 
-When you reach the EOF, you must store the current buffer in a char * and
-return it. If the buffer is empty, you must return NULL.
+Cuando llegues al EOF, debes almacenar el búfer actual en un char * y devolverlo.
+Si el búfer está vacío, debes devolver NULL.
 
-In case of an error, return NULL.
+En caso de error, devuelve NULL.
 
-If not returning NULL, the pointer should be freeable.
+Si no devuelves NULL, el puntero debe ser liberable (freeable).
 
-Your program will be compiled with the flag -D BUFFER_SIZE=xx, which must be
-used as the buffer size for the read calls in your functions.
+Tu programa se compilará con la bandera -D BUFFER_SIZE=xx, que debe usarse como 
+el tamaño del búfer para las llamadas a read en tus funciones.
 
-Your function must be free of memory leaks.
+Tu función debe estar libre de fugas de memoria.
 
-When you reach the EOF, your function should not keep any memory allocated with
-malloc except for the line that has been returned.
+Cuando llegues al EOF, tu función no debe mantener ninguna memoria asignada con 
+malloc excepto para la línea que se ha devuelto.
 
-Calling your function get_next_line in a loop will allow you to read
-the text available on a file descriptor one line at a time until the end of the
-text, regardless of the size of the text or any of its lines.
+Llamar a tu función get_next_line en un bucle te permitirá leer el texto 
+disponible en un descriptor de archivo línea por línea hasta el final del texto,
+independientemente del tamaño del texto o de cualquiera de sus líneas.
 
-Make sure that your function behaves correctly when reading from a file, from the
-standard output, from a redirection etc.
+Asegúrate de que tu función se comporte correctamente al leer desde un archivo, 
+desde la salida estándar, desde una redirección, etc.
 
-No call to another function will be done on the file descriptor between two calls
-of get_next_line.
+No se realizará ninguna llamada a otra función en el descriptor de archivo entre
+dos llamadas a get_next_line.
 
-Finally, we consider that get_next_line has undefined behavior when reading
-from a binary file.
+Finalmente, consideramos que get_next_line tiene un comportamiento indefinido al
+leer desde un archivo binario.
 --------------------------------------------------------------------------------
 */
 
@@ -67,7 +69,7 @@ from a binary file.
 char	*ft_strchr(char *s, int c)
 {
 	int	i = 0;
-	while (s[i] != c)/*(s[i] && s[i] != c)*/
+	while (s[i] != c)/*(s[i] && s[i] != c)*/ /* añadir s[i] && */
 		i++;
 	if (s[i] == c)
 		return (s + i);

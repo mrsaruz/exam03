@@ -15,7 +15,6 @@ void	ft_filter(char *line, char *str)
 	while (line[i])
 	{
 		int j = 0;
-
 		while (str[j] && line[i + j] == str[j])
 			j++;
 		if (j == len)
@@ -38,12 +37,11 @@ void	ft_filter(char *line, char *str)
 int	main(int ac, char **av)
 {
 	char line[999999];
+	int i = 0; 
 	int bytes_read = 1;
-	int i = 0;
 
 	if (ac != 2)
 		return (1);
-
 	while (bytes_read > 0)
 	{
 		bytes_read = read(0, &line[i], BUFFER_SIZE);
@@ -59,32 +57,6 @@ int	main(int ac, char **av)
 	ft_filter(line, av[1]);
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
