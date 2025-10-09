@@ -1,11 +1,13 @@
 Nombre del ejercicio: rip
 Archivos esperados: *.c *.h
 Funciones permitidas: puts, write
+-------------------------------------------------------------------------------
+Escribe un programa que reciba como argumento una cadena que contenga únicamente 
+paréntesis.
 
-Escribe un programa que reciba como argumento una cadena que contenga únicamente paréntesis.
-
-Si los paréntesis no están balanceados (por ejemplo "())"), tu programa deberá eliminar el
-mínimo número de paréntesis necesario para que la expresión quede balanceada.
+Si los paréntesis no están balanceados (por ejemplo "())"), tu programa deberá 
+eliminar el mínimo número de paréntesis necesario para que la expresión quede 
+balanceada.
 
 👉 Eliminar significa reemplazar por espacios.
 

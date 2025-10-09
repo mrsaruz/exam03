@@ -6,7 +6,7 @@
 /*   By: adruz-to <adruz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 14:36:00 by adruz-to          #+#    #+#             */
-/*   Updated: 2025/10/07 14:45:35 by adruz-to         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:41:55 by adruz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ Funciones permitidas : atoi, printf, fprintf, malloc, calloc, realloc, free,
 stdout, write
 --------------------------------------------------------------------------------
 
-Escribe un programa que reciba como argumento un entero n seguido de un conjunto
-s de enteros distintos.
-Tu programa deberá mostrar todos los subconjuntos de s cuya suma de elementos 
-sea igual a n.
+Escribe un programa que reciba como argumento un entero 'n' seguido de un conjunto
+'s' de enteros distintos.
+Tu programa deberá mostrar todos los subconjuntos de 's' cuya suma de elementos 
+sea igual a 'n'.
 
 El orden de las líneas no es importante, pero el orden de los elementos dentro 
-de cada subconjunto sí debe coincidir con el orden del conjunto inicial s.
+de cada subconjunto sí debe coincidir con el orden del conjunto inicial 's'.
 De esta manera, no habrá duplicados (por ejemplo: 1 2 y 2 1).
 
 Por ejemplo, usando el comando:
@@ -101,7 +101,7 @@ void	print_subset(int *set, int *path, int len)
 }
 
 // Función de retroceso (backtracking) para generar subconjuntos
-void backtrack(int *set, int *path, int len, int i, int sum, int target)
+void	backtrack(int *set, int *path, int len, int i, int sum, int target)
 {
 	if (i == len) // Caso base: se procesaron todos los elementos
 	{

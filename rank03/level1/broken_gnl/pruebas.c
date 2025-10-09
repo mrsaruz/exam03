@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pruebas.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adruz-to <adruz-to@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/07 15:12:07 by adruz-to          #+#    #+#             */
+/*   Updated: 2025/10/09 18:42:05 by adruz-to         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 
-#include <unistd.h>
-#include <stdlib.h>
+#include <stdlib.h> /* poner librería */
+# include <unistd.h> /* poner librería */
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 10
@@ -10,11 +21,10 @@
 
 #include "broken_gnl.h"
 
-
 char	*ft_strchr(char *s, int c)
 {
 	int	i = 0;
-	while (s[1] && s[i] != c)
+	while (s[i] && s[i] != c)
 		i++;
 	if (s[i] == c)
 		return (s + i);
@@ -118,3 +128,6 @@ char	*get_next_line(int fd)
 	}
 	return (ret);
 }
+
+
+
