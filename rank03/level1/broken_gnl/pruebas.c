@@ -6,13 +6,13 @@
 /*   By: adruz-to <adruz-to@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:12:07 by adruz-to          #+#    #+#             */
-/*   Updated: 2025/10/09 18:42:05 by adruz-to         ###   ########.fr       */
+/*   Updated: 2025/10/10 11:02:51 by adruz-to         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <stdlib.h> /* poner librería */
-# include <unistd.h> /* poner librería */
+#include <unistd.h> /* poner librería */
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 10
@@ -128,6 +128,5 @@ char	*get_next_line(int fd)
 	}
 	return (ret);
 }
-
 
 

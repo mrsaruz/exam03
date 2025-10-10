@@ -1,6 +1,6 @@
 
 
-#include <stdio.h> 
+#include <stdio.h>
 
 
 int	invalid(char *s)
@@ -25,7 +25,8 @@ int	invalid(char *s)
 	return (open + close);
 }
 
-void	generate_result(char *s, int remove, int delete, int pos)
+
+void generate_result(char *s,  int remove, int delete, int pos)
 {
 	if (remove == delete && !invalid(s))
 	{
@@ -45,12 +46,14 @@ void	generate_result(char *s, int remove, int delete, int pos)
 	}
 }
 
-int	main(int ac, char **av)
+
+int main(int ac, char **av)
 {
 	if (ac != 2)
 		return (1);
+
 	int remove = invalid(av[1]);
-	generate_result(av[1], remove, 0, 0);
+	genrate_result(av[1], remove, 0, 0);
 	return (0);
 }
 

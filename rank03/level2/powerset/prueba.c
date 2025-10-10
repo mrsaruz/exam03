@@ -1,6 +1,8 @@
 
-#include <stdlib.h>
+
 #include <stdio.h>
+#include <stdlib.h>
+
 
 void	print_subset(int *set, int *path, int len)
 {
@@ -19,8 +21,9 @@ void	print_subset(int *set, int *path, int len)
 		i++;
 	}
 	printf("\n");
-	return;
+	return ;
 }
+
 
 void	backtrack(int *set, int *path, int len, int i, int sum, int target)
 {
@@ -28,10 +31,10 @@ void	backtrack(int *set, int *path, int len, int i, int sum, int target)
 	{
 		if (sum == target)
 			print_subset(set, path, len);
-		return ;
+		return;
 	}
 	path[i] = 1;
-	backtrack(set, path, len, i + 1, sum + set[i], target);
+	bactrack(set, path, len, i + 1, sum + set[i], target);
 	path[i] = 0;
 	backtrack(set, path, len, i + 1, sum, target);
 }
@@ -60,18 +63,6 @@ int	main(int ac, char **av)
 	free(path);
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
